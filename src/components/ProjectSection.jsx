@@ -17,6 +17,7 @@ const projects = [
     ],
     github: "#",
     live: "#",
+    upcoming:true,
   },
   {
     title: "Freelancing Platform",
@@ -30,12 +31,12 @@ const projects = [
       "Tailwind CSS",
       "JavaScript",
     ],
-    github: "#",
+    github: "https://github.com/afreenkhatoon01/Freelancing-Platform",
     live: "#",
   },
   {
     title: "E-Commerce Website",
-    image: "/ecommerce-website.jpg",
+    image: "/e commerce website.jpg",
     description:
       "Designed and developed a responsive e-commerce website with product catalog, shopping cart, intuitive UI, and seamless user experience.",
     technologies: [
@@ -43,7 +44,7 @@ const projects = [
       "CSS",
       "JavaScript",
     ],
-    github: "#",
+    github: "https://github.com/afreenkhatoon01/Task-4",
     live: "#",
   },
   {

@@ -1,16 +1,16 @@
 import {
+  Mail,
+  MapPin,
   ArrowUp,
-  Heart,
 } from "lucide-react";
 
 import {
   FaGithub,
   FaLinkedin,
-  FaInstagram,
-  FaTwitter,
 } from "react-icons/fa";
 
 const Footer = () => {
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -19,37 +19,62 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-[var(--bg)] border-t border-gray-200 dark:border-slate-800">
+    <footer className="relative bg-[var(--bg)] border-t border-[var(--border)] transition-all duration-300">
 
-      <div className="max-w-7xl mx-auto px-6 py-12">
+      {/* Top Gradient */}
 
-        <div className="grid md:grid-cols-3 gap-10">
+      <div className="h-1 w-full bg-gradient-to-r from-cyan-500 via-blue-600 to-violet-600"></div>
 
-          {/* Logo */}
+      <div className="max-w-7xl mx-auto px-6 py-14">
+
+        <div className="grid lg:grid-cols-3 gap-12">
+
+          {/* ================= LEFT ================= */}
 
           <div>
 
-            <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
+            <h2 className="text-3xl font-black bg-gradient-to-r from-blue-600 via-cyan-500 to-indigo-600 bg-clip-text text-transparent">
               Afreen Khatoon
             </h2>
 
-            <p className="mt-4 text-[var(--secondary)] leading-7">
-              Full Stack Developer passionate about building scalable web
-              applications, AI-powered solutions, and exceptional digital
-              experiences.
+            <p className="mt-6 leading-8 text-[var(--secondary)]">
+
+              AI & Machine Learning Developer passionate about building
+              intelligent web applications, scalable software solutions,
+              and AI-powered digital experiences.
+
             </p>
+
+            <div className="mt-8">
+
+              <span className="font-semibold text-cyan-500">
+
+                Internship:
+
+              </span>
+
+              <span className="text-[var(--secondary)]">
+
+                {" "}
+                Python Developer Intern at Velnovax Technologies
+
+              </span>
+
+            </div>
 
           </div>
 
-          {/* Quick Links */}
+          {/* ================= CENTER ================= */}
 
           <div>
 
-            <h3 className="text-xl font-semibold text-[var(--text)] mb-5">
+            <h3 className="text-2xl font-bold text-[var(--text)] mb-8">
+
               Quick Links
+
             </h3>
 
-            <ul className="space-y-3">
+            <ul className="space-y-5">
 
               {[
                 "Home",
@@ -63,7 +88,14 @@ const Footer = () => {
 
                   <a
                     href={`#${item.toLowerCase()}`}
-                    className="text-[var(--secondary)] hover:text-blue-600 hover:translate-x-2 inline-block transition-all duration-300"
+                    className="
+                    inline-block
+                    text-[var(--secondary)]
+                    hover:text-blue-600
+                    hover:translate-x-2
+                    transition-all
+                    duration-300
+                    "
                   >
                     {item}
                   </a>
@@ -76,78 +108,158 @@ const Footer = () => {
 
           </div>
 
-          {/* Social Links */}
+          {/* ================= RIGHT ================= */}
 
           <div>
 
-            <h3 className="text-xl font-semibold text-[var(--text)] mb-5">
-              Connect
+            <h3 className="text-2xl font-bold text-[var(--text)] mb-8">
+
+              Connect With Me
+
             </h3>
 
-            <div className="flex gap-4 mb-6">
+            {/* Social Icons */}
+
+            <div className="flex gap-5 mb-8">
 
               <a
                 href="https://github.com/afreenkhatoon01"
                 target="_blank"
-                rel="noopener noreferrer"
-                className="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center hover:scale-110 hover:-translate-y-1 transition duration-300"
+                rel="noreferrer"
+                className="
+                w-14
+                h-14
+                rounded-full
+                border
+                border-slate-300
+                dark:border-slate-700
+                flex
+                items-center
+                justify-center
+                text-[var(--text)]
+                hover:bg-blue-600
+                hover:text-white
+                hover:border-blue-600
+                hover:scale-110
+                transition-all
+                duration-300
+                "
               >
-                <FaGithub size={20} />
+                <FaGithub size={22} />
               </a>
 
               <a
-                href="https://www.linkedin.com/in/afreen-khatoon-22bb6a299/?skipRedirect=true"
+                href="https://www.linkedin.com/in/afreen-khatoon-22bb6a299/"
                 target="_blank"
-                rel="noopener noreferrer"
-                className="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center hover:scale-110 hover:-translate-y-1 transition duration-300"
+                rel="noreferrer"
+                className="
+                w-14
+                h-14
+                rounded-full
+                border
+                border-slate-300
+                dark:border-slate-700
+                flex
+                items-center
+                justify-center
+                text-[var(--text)]
+                hover:bg-blue-600
+                hover:text-white
+                hover:border-blue-600
+                hover:scale-110
+                transition-all
+                duration-300
+                "
               >
-                <FaLinkedin size={20} />
+                <FaLinkedin size={22} />
               </a>
-
-            
-
-              
 
             </div>
 
-            <button
-              onClick={scrollToTop}
-              className="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium transition"
-            >
-              <ArrowUp size={18} />
-              Back to Top
-            </button>
+            {/* Contact Info */}
+
+            <div className="space-y-5">
+
+              <div className="flex items-center gap-3">
+
+                <Mail
+                  size={18}
+                  className="text-cyan-500"
+                />
+
+                <a
+                  href="mailto:afreenkhatoon11122004@gmail.com"
+                  className="text-[var(--secondary)] hover:text-blue-600 transition"
+                >
+                  afreenkhatoon11122004@gmail.com
+                </a>
+
+              </div>
+
+              <div className="flex items-center gap-3">
+
+                <MapPin
+                  size={18}
+                  className="text-cyan-500"
+                />
+
+                <span className="text-[var(--secondary)]">
+                  Gorakhpur, Uttar Pradesh, India
+                </span>
+
+              </div>
+
+            </div>
 
           </div>
 
         </div>
 
-        {/* Bottom Footer */}
+        {/* Divider */}
 
-        <div className="border-t border-gray-200 dark:border-slate-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="border-t border-[var(--border)] mt-14 pt-8">
 
-          <p className="text-[var(--secondary)] text-center">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-5">
 
-            © {new Date().getFullYear()}{" "}
-            <span className="font-semibold text-blue-600">
-              Afreen Khatoon
-            </span>
-            . All Rights Reserved.
+            <p className="text-[var(--secondary)] text-center">
 
-          </p>
+              © {new Date().getFullYear()}{" "}
 
-          <p className="flex items-center gap-2 text-[var(--secondary)]">
+              <span className="font-semibold text-blue-600">
 
-            Made with
+                Afreen Khatoon
 
-            <Heart
-              size={18}
-              className="fill-red-500 text-red-500 animate-pulse"
-            />
+              </span>
 
-            using React & Tailwind CSS
+              . All rights reserved.
 
-          </p>
+            </p>
+
+            <button
+              onClick={scrollToTop}
+              className="
+              group
+              flex
+              items-center
+              gap-2
+              text-blue-600
+              font-medium
+              hover:text-cyan-500
+              transition-all
+              duration-300
+              "
+            >
+
+              <ArrowUp
+                size={18}
+                className="group-hover:-translate-y-1 transition-transform"
+              />
+
+              Back to Top
+
+            </button>
+
+          </div>
 
         </div>
 
