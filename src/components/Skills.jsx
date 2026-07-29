@@ -76,7 +76,7 @@ const skills = [
 ];
 
 const Skills = () => {
-      return (
+  return (
     <section
       id="skills"
       className="relative overflow-hidden bg-[var(--bg)] py-28"
@@ -124,95 +124,140 @@ const Skills = () => {
 
         {/* Skill Cards */}
 
-        <div className="mt-20 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-20 grid gap-8 md:grid-cols-2 xl:grid-cols-3"></div>
+        {skills.map((category, index) => (
 
-          {skills.map((category, index) => (
+  <motion.div
+    key={index}
+    initial={{ opacity: 0, y: 40 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ delay: index * 0.15 }}
+    whileHover={{
+      y: -10,
+      scale: 1.02,
+    }}
+    className="
+      group
+      rounded-3xl
 
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.15 }}
-              whileHover={{
-                y: -10,
-                scale: 1.02,
-              }}
-              className="
-                group
-                rounded-3xl
-                border
-                border-white/10
-                bg-white/5
-                p-7
-                backdrop-blur-2xl
-                transition-all
-                duration-500
-                hover:border-cyan-400/40
-                hover:shadow-[0_0_35px_rgba(34,211,238,.18)]
-              "
-            >
+      border
+      border-gray-300/80
+      dark:border-white/10
 
-              <h3 className="mb-8 text-2xl font-bold text-cyan-300">
-                {category.title}
-              </h3>
+      bg-white/10
+      dark:bg-white/5
 
-              <div className="space-y-6">
-                {category.items.map((skill, skillIndex) => (
+      p-7
 
-                  <div key={skillIndex}>
+      backdrop-blur-2xl
 
-                    {/* Skill Header */}
+      shadow-md
+      dark:shadow-none
 
-                    <div className="mb-2 flex items-center justify-between">
+      transition-all
+      duration-500
 
-                      <div className="flex items-center gap-3">
+      hover:border-cyan-400
+      dark:hover:border-cyan-400/40
 
-                        <div className="text-2xl text-cyan-400">
-                          {skill.icon}
-                        </div>
+      hover:shadow-[0_10px_30px_rgba(0,0,0,.08)]
+      dark:hover:shadow-[0_0_35px_rgba(34,211,238,.18)]
+    "
+  >
 
-                        <span className="font-medium text-[var(--text)]">
-                          {skill.name}
-                        </span>
+    {/* Category Title */}
 
-                      </div>
+    <h3 className="
+      mb-8
+      text-2xl
+      font-bold
+      text-cyan-500
+      dark:text-cyan-300
+    ">
+      {category.title}
+    </h3>
 
-                      <span className="text-sm font-semibold text-cyan-300">
-                        {skill.level}%
-                      </span>
+    <div className="space-y-6">
 
-                    </div>
+      {category.items.map((skill, skillIndex) => (
 
-                    {/* Progress Bar */}
+        <div key={skillIndex}>
 
-                    <div className="h-2 overflow-hidden rounded-full bg-white/10">
+          {/* Skill Header */}
 
-                      <motion.div
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${skill.level}%` }}
-                        viewport={{ once: true }}
-                        transition={{
-                          duration: 1,
-                          ease: "easeOut",
-                        }}
-                        className="h-full rounded-full bg-gradient-to-r from-cyan-400 via-blue-500 to-violet-500"
-                      />
+          <div className="mb-2 flex items-center justify-between">
 
-                    </div>
+            <div className="flex items-center gap-3">
 
-                  </div>
-
-                ))}
-
+              <div className="
+                text-2xl
+                text-cyan-500
+                dark:text-cyan-400
+              ">
+                {skill.icon}
               </div>
 
-            </motion.div>
+              <span className="
+                font-medium
+                text-[var(--text)]
+              ">
+                {skill.name}
+              </span>
 
-          ))}
+            </div>
+
+            <span className="
+              text-sm
+              font-semibold
+              text-cyan-500
+              dark:text-cyan-300
+            ">
+              {skill.level}%
+            </span>
+
+          </div>
+
+          {/* Progress Bar */}
+
+          <div className="
+            h-2
+            overflow-hidden
+            rounded-full
+            bg-gray-200
+            dark:bg-white/10
+          ">
+
+            <motion.div
+              initial={{ width: 0 }}
+              whileInView={{ width: `${skill.level}%` }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 1,
+                ease: "easeOut",
+              }}
+              className="
+                h-full
+                rounded-full
+                bg-gradient-to-r
+                from-cyan-400
+                via-blue-500
+                to-violet-500
+              "
+            />
+
+          </div>
 
         </div>
-                {/* Bottom Tech Badges */}
+
+      ))}
+
+    </div>
+
+  </motion.div>
+
+))}
+        {/* ================= Bottom Tech Badges ================= */}
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -240,19 +285,37 @@ const Skills = () => {
               }}
               className="
                 rounded-full
+
                 border
-                border-cyan-500/20
-                bg-white/5
+                border-gray-300/80
+                dark:border-cyan-500/20
+
+                bg-white/10
+                dark:bg-white/5
+
+                backdrop-blur-xl
+
                 px-6
                 py-3
+
                 text-sm
                 font-medium
-                text-cyan-300
-                backdrop-blur-xl
+
+                text-[var(--text)]
+
+                shadow-sm
+                dark:shadow-none
+
                 transition-all
                 duration-300
+
                 hover:border-cyan-400
-                hover:shadow-[0_0_20px_rgba(34,211,238,.3)]
+                hover:text-cyan-500
+
+                dark:hover:text-cyan-300
+
+                hover:shadow-md
+                dark:hover:shadow-[0_0_20px_rgba(34,211,238,.30)]
               "
             >
               {tech}
